@@ -1,0 +1,5 @@
+digraph "void greet(java.lang.String)" {
+    label="void greet(java.lang.String)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=lightgray,label="Block #0\nr0 := @parameter0\l$r1 = java.lang.System.out\l$r2 = dynamicinvoke \"makeConcatWithConstants\" <java.lang.String (java.lang.String)>(r0) java.lang.invoke.StringConcatFactory.makeConcatWithConstants(\"Hello, \u0001!\")\lvirtualinvoke $r1.println($r2)\lreturn\l",];
+}

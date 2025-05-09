@@ -1,0 +1,5 @@
+digraph "void main(java.lang.String[])" {
+    label="void main(java.lang.String[])";
+    node [shape=box];
+    "0" [style=filled,fillcolor=lightgray,label="Block #0\nr1 := @parameter0\l$r0 = java.lang.System.out\lvirtualinvoke $r0.println(\"hello\")\lreturn\l",];
+}
