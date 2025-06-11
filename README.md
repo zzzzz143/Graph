@@ -10,6 +10,15 @@ python3 run_pycheck.py <source_file>
 ### 检查java代码    --在文件中搜索“可以返回”查找输出位置
 python3 run_javacheck.py <source_file>
 
+### 检查html代码   --在文件中搜索“可以返回”查找输出位置
+python3 run_htmlcheck.py <source_file>
+
+### 检查CSS代码   --在文件中搜索“可以返回”查找输出位置
+python3 run_CSScheck.py <source_file>
+
+### 检查javascript代码   --在文件中搜索“可以返回”查找输出位置
+python3 run_jscheck.py <source_file>
+
 ### 控制流图生成--python   -- 结果生成一个exampleCFG.png
 python3 run_pyGraph.py  <python_file>
 
@@ -69,20 +78,37 @@ apt install imagemagick
 
 
 #### Soot --- 控制流图生成--java  
+```bash
 cd Soot
 
 javac test.java
+```
 
 ##### 命令1：按语句划分
+```bash
 java -cp soot-4.5.0-jar-with-dependencies.jar soot.tools.CFGViewer -cp . -pp test
+```
 
 ##### 命令2：按基本块划分
+```bash
 java -cp soot-4.5.0-jar-with-dependencies.jar soot.tools.CFGViewer -cp . -pp --graph EnhancedBlockGraph test
 
 dot Triangle.dot -T png -o Triangle.png
+```
 
+####  htmlhint --- 代码检查-- html  ✅
+```bash
+npm install htmlhint -g
+```
 
+####  csslint --- 代码检查-- CSS  ✅
+```bash
+npm install -g csslint
+```
 
+#### ESLint --- 代码检查-- JavaScript  ✅
+```bash
+npm init @eslint/config
 
-
-
+npx eslint yourfile.js
+```

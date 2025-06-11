@@ -1,0 +1,53 @@
+/* Example CSS file for testing CSSLint */
+
+/* 通用样式 */
+body {
+    font-family: Arial, sans-serif; /* 缺少空格 */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4f4; /* 缺少空格 */
+}
+
+/* 容器样式 */
+.container {
+    width: 80%; /* 缺少空格 */
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 缺少空格 */
+}
+
+/* 头部样式 */
+.header {
+    background-color:#333; /* 缺少空格 */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* 内容样式 */
+.content {
+    padding: 20px;
+}
+
+/* 链接样式 */
+a {
+    color: blue; /* 缺少空格 */
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/* 底部样式 */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
