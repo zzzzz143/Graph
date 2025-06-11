@@ -1,0 +1,1 @@
+temp.java:2:	UseUtilityClass:	This utility class has a non-private constructor

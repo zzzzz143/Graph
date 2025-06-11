@@ -22,22 +22,23 @@ def run_pycheck(py_code_file):
     with open(temp_file_name, 'w') as temp_file:
         temp_file.write(py_code)
 
-    # 构造 pylint 命令
+    # 构造 ruff 命令
     command = [
-        'pylint',
+        'ruff',
+        'check',
         temp_file_name
     ]
 
     try:
-        # 运行 pylint 命令，同时捕获 stdout 和 stderr
+        # 运行 ruff 命令，同时捕获 stdout 和 stderr
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, check=True)
         
         # 打印标准输出
-        print("Pylint output:")
+        print("ruff output:")
         print(result.stdout)
     except subprocess.CalledProcessError as e:
-        # 如果 pylint 命令失败，打印错误信息
-        print("Pylint encountered an error:")
+        # 如果 ruff 命令失败，打印错误信息
+        print("ruff encountered an error:")
         print(e.stdout)  # 打印标准输出（包含 stderr 的内容）      # 这里是找到的错误--可以返回
     finally:
         # 删除临时文件
@@ -51,5 +52,5 @@ if __name__ == "__main__":
     # 获取 Python 代码文件名
     py_code_file = sys.argv[1]
 
-    # 调用函数运行 pylint
+    # 调用函数运行 ruff
     run_pycheck(py_code_file)

@@ -1,26 +1,32 @@
 
-public class Test {
-    public static void main(String[] args) {
-        // 打印一条消息到控制台
-        System.out.println("Hello, World!");
-
-        // 定义一个变量并打印
-        int number = 42;
-        System.out.println("The answer to life, the universe, and everything is: " + number);
-
-        // 调用一个方法
-        greet("Alice");
-        greet("Bob");
-
-        // 定义一个数组并遍历
-        String[] names = {"John", "Jane", "Doe"};
-        for (String name : names) {
-            System.out.println("Hello, " + name + "!");
+public class Test { 
+    public String triangle(int a, int b, int c){
+        
+        if(a > 0 && b > 0 && c >0){
+            if(a + b >c)
+            {
+                if(a == b || b ==c || a ==c)
+                {
+                    if(a == b && b == c)
+                    {
+                        return "equilateral";
+                    }
+                    return "isosceles";
+                }
+                else{
+                    return "scalene";
+                }
+            }
+            else{
+                return "Not Triangle";
+            }
         }
+        else{
+            return "Not Triangle";
+        }    
     }
-
-    // 定义一个方法
-    public static void greet(String name) {
-        System.out.println("Hello, " + name + "!");
-    }
+    
+    public int a;
+    public int b;
+    public int c;
 }

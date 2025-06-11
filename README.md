@@ -2,22 +2,22 @@
 ./install.sh
 
 ### 检查C/CPP代码   --在文件中搜索“可以返回”查找输出位置
-python3 run_cppcheck.py test.c/cpp   
+python3 run_cppcheck.py <source_file> 
 
 ### 检查python代码  --在文件中搜索“可以返回”查找输出位置
-python3 run_pycheck.py test.py
+python3 run_pycheck.py <source_file>
 
 ### 检查java代码    --在文件中搜索“可以返回”查找输出位置
-python3 run_javacheck.py test.java
+python3 run_javacheck.py <source_file>
 
 ### 控制流图生成--python   -- 结果生成一个exampleCFG.png
-python3 run_pyGraph.py   <python_file>
+python3 run_pyGraph.py  <python_file>
 
 ### 控制流图生成--c/cpp    --- 结果生成一个 test.png
-python run_cppGraph.py <source_file>
+python3 run_cppGraph.py <source_file> [-o <output_directory>]
 
 ### 控制流图生成--java     --- 例test.java最终生成一个test.png
-python run_javaGraph.py <source_file>
+python3 run_javaGraph.py <source_file> <output_dir>
 
 
 ### 附录--工具的安装过程
@@ -34,17 +34,20 @@ cppcheck test.c
         --suppress=uninitvar       # 抑制未初始化变量的警告
 ```
 
-#### pylint        --- 代码检查 -- python ✅
+#### ruff & pylint 两种方式---代码检查 -- python ✅
 ```bash
 pip install pylint
 pylint test.py
+
+pip install ruff
+ruff check .
 ```
 
-#### pmd        --- 代码检查 -- java ✅
+#### pmd---代码检查 -- java ✅
 ```bash
 wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F7.13.0/pmd-dist-7.13.0-bin.zip
 unzip pmd-dist-7.13.0-bin.zip
-alias pmd="/path/to/pmd-bin-7.13.0/bin/pmd"   ###这一步是起别名
+alias pmd="/path/to/pmd-bin-7.13.0/bin/pmd"   ###起别名
 pmd check -d <test.java> -R rulesets/java/quickstart.xml -f text
 ```
 
@@ -58,6 +61,13 @@ cd staticfg
 python3 test.py
 ```
 
+#### CallGraph --- 控制流图生成--cpp  ✅
+
+```bash
+apt install imagemagick
+```
+
+
 #### Soot --- 控制流图生成--java  
 cd Soot
 
@@ -67,33 +77,12 @@ javac test.java
 java -cp soot-4.5.0-jar-with-dependencies.jar soot.tools.CFGViewer -cp . -pp test
 
 ##### 命令2：按基本块划分
-java -cp soot-4.5.0-jar-with-dependencies.jar soot.tools.CFGViewer -cp . -pp --graph=BriefBlockGraph test
+java -cp soot-4.5.0-jar-with-dependencies.jar soot.tools.CFGViewer -cp . -pp --graph EnhancedBlockGraph test
 
 dot Triangle.dot -T png -o Triangle.png
 
 
-#### CallGraph --- 控制流图生成--cpp  ✅
-
-```bash
-git clone https://github.com/bernardnongpoh/CallGraph.git
-
-cd Callgraph
-mkdir build
-cd build
-cmake ..
-
-cd ..
-./run.sh test/test_case.c
-dot -Tpng .main.dot -o test.png
-```
-
-#### doxygen --- 调用图生成   -- 未使用这个
-
-```bash
-sudo apt-get install doxygen
-sudo apt-get install graphviz
 
 
-```
 
 
